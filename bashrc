@@ -18,9 +18,14 @@ alias chrome='chromium-browser &> /dev/null &'
 alias update='sudo aptitude update'
 alias upgrade='sudo aptitude upgrade'
 
-mcd () {
+mcd() {
     mkdir -p $1
     cd $1
+}
+
+cdls() {
+    cd $1
+    ls
 }
 
 # If not running interactively, don't do anything
