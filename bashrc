@@ -10,6 +10,7 @@ alias lla='ls -lAB'
 alias ..='cd ..'
 alias .2='cd ../..'
 alias .3='cd ../../..'
+alias .4='cd ../../../..'
 
 alias rm='rm -I --preserve-root'
 
@@ -18,12 +19,14 @@ alias chrome='chromium-browser &> /dev/null &'
 alias update='sudo aptitude update'
 alias upgrade='sudo aptitude upgrade'
 
+alias cuke='cucumber'
+
 mcd() {
     mkdir -p $1
     cd $1
 }
 
-cdls() {
+cl() {
     cd $1
     ls
 }
@@ -102,12 +105,12 @@ fi
 
 # Shortens PS1 by hiding /u /h
 shorten_ps1 () {
-    export PS1="$boldGreen\w$resetCyan\$(__git_ps1) $boldYellow\$$reset "
+    export PS1="$boldGreen\w$plainCyan\$(__git_ps1) $boldYellow\$$reset "
 }
 
 # Re-expands PS1
 expand_ps1 () {
-    PS1="$boldGreen\u@\h:$yellow\w$resetCyan\$(__git_ps1) $boldYellow\$$reset "
+    PS1="$boldGreen\u@\h:$yellow\w$plainCyan\$(__git_ps1) $boldYellow\$$reset "
 }
 
 # Try to keep environment pollution down, EPA loves us.
