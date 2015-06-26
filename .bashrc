@@ -19,17 +19,22 @@ alias chrome='chromium-browser &> /dev/null &'
 alias update='sudo aptitude update'
 alias upgrade='sudo aptitude upgrade'
 
-alias cuke='cucumber'
-
+# Make directory then cd into it
 mcd() {
     mkdir -p $1
     cd $1
 }
 
+# Change directory then ls
 cl() {
     cd $1
     ls
 }
+
+# CipherHealth 2015
+alias cuke='cucumber'
+alias eugene='ssh guest@88.80.187.105'
+alias tc='cd ~/workspace/tiger_chicken; ls'
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -66,7 +71,7 @@ match_lhs=""
 [[ $'\n'${match_lhs} == *$'\n'"TERM "${safe_term}* ]] && use_color=true
 
 if ${use_color} ; then
-    
+
     # Enable colors for grep. Prefer ~/.dir_colors #64489
     if type -P dircolors >/dev/null ; then
 	if [[ -f ~/.dir_colors ]] ; then
@@ -146,3 +151,6 @@ fi
 
 # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.rvm/bin"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
