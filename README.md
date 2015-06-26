@@ -5,4 +5,10 @@ Stores useful config files for use among different systems
 
 # Setup
 * Clone this repo
-* Create links for relevant files
+* Create links to this directory, eg:
+```
+#!bash
+
+cd ~
+ln .myconfig/.bashrc .bashrc
+```

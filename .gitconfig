@@ -1,0 +1,17 @@
+[user]
+	email = ethanez713@gmail.com
+	name = Ethan Zhou
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	pr = pull --rebase
+	rc = rebase --continue
+	rs = rebase --skip
+[core]
+	editor = emacs -nw
+	excludesfile = ~/.gitignore
+
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
