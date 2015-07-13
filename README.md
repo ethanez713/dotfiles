@@ -1,14 +1,18 @@
 # Summary
 
-Stores useful config files for use among different systems
+Stores useful config files for use among different machines
 (eg. .bashrc, .emacs, etc.)
 
 # Setup
 * Clone this repo
-* Create links to this directory, eg:
+* cd into the dotfiles directory
+* Run the following command:
+
 ```
 #!bash
 
-cd ~
-ln .myconfig/.bashrc .bashrc
+./makelinks.sh
 ```
+
+This will make hard links in the home directory to the files in this
+repo
