@@ -2,6 +2,7 @@
 (require 'paren) (show-paren-mode t)    ;; Display matching parentheses
 (setq-default column-number-mode t)     ;; Show column numbers
 (global-set-key (kbd "M-s M-s") 'shell) ;; bash shell shortcut
+(setq backup-by-copying-when-linked t)  ;; emacs won't break hard links
 ;; general formatting
 (setq require-final-newline t)          ;; forces final newline
 (add-hook 'before-save-hook
@@ -24,7 +25,7 @@
 
 ;; for nlinum
 (setq nlinum-format "%3d ")
-(global-set-key (kbd "C-M-n") 'nlinum-mode)
+(global-set-key (kbd "M-n") 'nlinum-mode)
 
 ;; use arrow keys to move between windows
 (when (fboundp 'windmove-default-keybindings)
