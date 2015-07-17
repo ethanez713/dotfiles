@@ -79,7 +79,8 @@
  ;; If there is more than one, they won't work right.
  '(coffee-tab-width 2)
  '(css-indent-offset 2)
- '(ido-work-directory-list-ignore-regexps (quote (".*\\/exercism\\/.*"))))
+ '(ido-work-directory-list-ignore-regexps (quote (".*\\/exercism\\/.*")))
+ '(vc-follow-symlinks t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
