@@ -6,7 +6,6 @@ alias ls='ls -B --color=auto'
 alias la='ls -AB'
 alias ll='ls -lB'
 alias lla='ls -lAB'
-
 alias ..='cd ..'
 alias .2='cd ../..'
 alias .3='cd ../../..'
@@ -35,6 +34,7 @@ cl() {
 alias cuke='cucumber'
 alias eugene='ssh guest@88.80.187.105'
 alias tc='cd ~/workspace/tiger_chicken; ls'
+alias ba='cd ~/workspace/banff; ls'
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
