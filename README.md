@@ -6,13 +6,11 @@ Stores useful config files for use among different machines
 # Setup
 * Clone this repo
 * cd into the dotfiles directory
-* Run the following command:
+* Run the following commands:
 
 ```
 #!bash
 
-./makelinks.sh
+./cleanup.sh   # renames existing dotfiles to 'dotfile-OLD'
+./makelinks.sh # makes symlinks to this directory
 ```
-
-This will make hard links in the home directory to the files in this
-repo

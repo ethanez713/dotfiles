@@ -4,10 +4,10 @@ if [[ $(pwd) != *'dotfiles' ]]; then
     exit 1
 fi
 
-# Links dotfiles to home directory
+# Rename old dotfiles by appending '-OLD'
 for f in $(find .* -maxdepth 0 -type f); do
-    if ln -s $(pwd)/$f ~/$f; then
-	echo "Successfully linked $f!"
+    if mv ~/$f ~/$f-OLD; then
+	echo "$f moved to $f-OLD!"
     fi
 done
 
