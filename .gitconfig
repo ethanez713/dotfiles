@@ -9,6 +9,7 @@
 	pr = pull --rebase
 	rc = rebase --continue
 	rs = rebase --skip
+	undo-commit = reset --soft HEAD^
 [core]
 	editor = emacs -nw
 	excludesfile = ~/.gitignore

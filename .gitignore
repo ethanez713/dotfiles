@@ -1,3 +1,4 @@
 # Ignores automatic emacs files
 *~
 *#*#
+.#*
