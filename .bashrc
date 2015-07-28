@@ -14,6 +14,7 @@ alias .4='cd ../../../..'
 alias rm='rm -I --preserve-root'
 
 alias emacs='emacs -nw'
+alias emasc='emacs -nw' # lolol
 alias chrome='chromium-browser &> /dev/null &'
 alias update='sudo aptitude update'
 alias upgrade='sudo aptitude upgrade'
