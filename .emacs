@@ -1,4 +1,7 @@
-;; general stuff
+;; ;; ; ;; ;;
+;; GENERAL ;;
+;; ;; ; ;; ;;
+
 (require 'paren) (show-paren-mode t)    ;; Display matching parentheses
 (setq-default column-number-mode t)     ;; Show column numbers
 (global-set-key (kbd "M-s M-s") 'shell) ;; bash shell shortcut
@@ -8,7 +11,6 @@
 (add-hook 'before-save-hook
 	  'delete-trailing-whitespace)  ;; saving clears extra w-space
 
-
 ;; gets melpa packages
 (when (>= emacs-major-version 24)
   (require 'package)
@@ -17,15 +19,15 @@
 "http://melpa.milkbox.net/packages/") t)
   )
 
-;; for ido (powerful autocomplete)
-;; http://emacswiki.org/emacs/InteractivelyDoThings
-;; https://www.masteringemacs.org/article/introduction-to-ido-mode
-(ido-mode 1)
-(setq ido-enable-flex-matching t)
+;; ;; ;; ;; ;;
+;; KEYBOARD ;;
+;; ;; ;; ;; ;;
 
-;; for nlinum
-(setq nlinum-format "%3d ")
-(global-set-key (kbd "M-n") 'nlinum-mode)
+;; bind C-x 4 to split window into quadrants
+(fset 'window-split-quadrants
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ("23[1;2B3" 0 "%d")) arg)))
+
+(define-key global-map (kbd "C-x 4") 'window-split-quadrants)
 
 ;; use arrow keys to move between windows
 (when (fboundp 'windmove-default-keybindings)
@@ -38,6 +40,11 @@
   '(define-key shell-mode-map (kbd "<up>") 'comint-previous-input))
 (eval-after-load "shell"
   '(define-key shell-mode-map (kbd "<down>") 'comint-next-input))
+
+;; change all but first 'pick' to 's' (git squashing)
+(fset 'pick-s-replace
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ("h%picks!" 0 "%d")) arg)))
+
 
 ;; ;; ;; ;;
 ;; MODES ;;
@@ -63,6 +70,20 @@
 	     '("\\(Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'"
                . ruby-mode))
 
+;; ;; ;; ;; ;; ;; ;;
+;; OTHER PACKAGES ;;
+;; ;; ;; ;; ;; ;; ;;
+
+;; for ido (powerful autocomplete)
+;; http://emacswiki.org/emacs/InteractivelyDoThings
+;; https://www.masteringemacs.org/article/introduction-to-ido-mode
+(ido-mode 1)
+(setq ido-enable-flex-matching t)
+
+;; for nlinum
+(setq nlinum-format "%3d ")
+(global-set-key (kbd "M-n") 'nlinum-mode)
+
 ;; ;; for AUCTeX
 ;; (require 'tex-site)
 ;; (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
@@ -72,6 +93,7 @@
 ;; (setq TeX-parse-self t) ;; for document parsing
 ;; (setq LaTeX-indent-level 4) ;; for \item indenting
 ;; (setq LaTeX-item-indent -2)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
