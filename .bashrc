@@ -13,6 +13,7 @@ alias .4='cd ../../../..'
 
 alias rm='rm -I --preserve-root'
 
+alias cuke='cucumber'
 alias emacs='emacs -nw'
 alias emasc='emacs -nw' # lolol
 alias chrome='chromium-browser &> /dev/null &'
@@ -31,11 +32,8 @@ cl() {
     ls
 }
 
-# CipherHealth 2015
-alias cuke='cucumber'
-alias eugene='ssh guest@88.80.187.105'
-alias tc='cd ~/workspace/tiger_chicken; ls'
-alias ba='cd ~/workspace/banff; ls'
+# shortcuts
+alias bowd='cd ~/workspace/bowdoin; ls'
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return

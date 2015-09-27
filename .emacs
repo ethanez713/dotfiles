@@ -25,8 +25,7 @@
 
 ;; bind C-x 4 to split window into quadrants
 (fset 'window-split-quadrants
-   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ("23[1;2B3" 0 "%d")) arg)))
-
+   "\C-x3\C-x2\C-[[1;2C\C-x2\C-[[1;2D")
 (define-key global-map (kbd "C-x 4") 'window-split-quadrants)
 
 ;; use arrow keys to move between windows
@@ -43,8 +42,7 @@
 
 ;; change all but first 'pick' to 's' (git squashing)
 (fset 'pick-s-replace
-   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ("h%picks!" 0 "%d")) arg)))
-
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ("h%picks!" 0 "%d")) arg)))
 
 ;; ;; ;; ;;
 ;; MODES ;;
