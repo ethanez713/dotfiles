@@ -40,10 +40,19 @@
 (eval-after-load "shell"
   '(define-key shell-mode-map (kbd "<down>") 'comint-next-input))
 
+;; ;; ;;; ;; ;;
+;; SHORTCUTS ;;
+;; ;; ;;; ;; ;;
+
 ;; change all but first 'pick' to 's' (git squashing)
 (fset 'pick-s-replace
    (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ("h%picks!" 0 "%d")) arg)))
 
+;; reverts buffer without confirmation
+(defun revert-buffer-no-confirm ()
+    "Revert buffer without confirmation."
+    (interactive)
+    (revert-buffer t t))
 ;; ;; ;; ;;
 ;; MODES ;;
 ;; ;; ;; ;;
