@@ -60,17 +60,9 @@
 ;; for text-mode
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
-;; turn on ruby-electric by default
-(add-hook 'ruby-mode-hook 'ruby-electric-mode)
-
 ;; for python shell
 (require 'python)
 (setq python-shell-interpreter "python3")
-
-;; for feature-mode (cucumber)
-;; https://github.com/michaelklishin/cucumber.el
-(require 'feature-mode)
-(add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
 
 ;; for ruby-mode
 (add-to-list 'auto-mode-alist
