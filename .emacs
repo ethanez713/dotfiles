@@ -23,6 +23,10 @@
 ;; KEYBOARD ;;
 ;; ;; ;; ;; ;;
 
+;; bind C-x C-z to zoom the current frame
+(require 'zoom-window)
+(global-set-key (kbd "C-x C-z") 'zoom-window-zoom)
+
 ;; bind C-x 4 to split window into quadrants
 (fset 'window-split-quadrants
    "\C-x3\C-x2\C-[[1;2C\C-x2\C-[[1;2D")
