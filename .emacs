@@ -26,6 +26,7 @@
 ;; bind C-x C-z to zoom the current frame
 (require 'zoom-window)
 (global-set-key (kbd "C-x C-z") 'zoom-window-zoom)
+(setq zoom-window-mode-line-color "Red")
 
 ;; bind C-x 4 to split window into quadrants
 (fset 'window-split-quadrants
