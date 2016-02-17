@@ -106,6 +106,7 @@
  '(coffee-tab-width 2)
  '(css-indent-offset 2)
  '(ido-work-directory-list-ignore-regexps (quote (".*\\/exercism\\/.*")))
+ '(inhibit-startup-screen t)
  '(vc-follow-symlinks t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
