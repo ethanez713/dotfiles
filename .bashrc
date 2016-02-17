@@ -10,30 +10,27 @@ alias ..='cd ..'
 alias .2='cd ../..'
 alias .3='cd ../../..'
 alias .4='cd ../../../..'
-
 alias rm='rm -I --preserve-root'
 
-alias cuke='cucumber'
+alias bowd='cd ~/workspace/bowdoin; ls'
+
 alias emacs='emacs -nw'
 alias emasc='emacs -nw' # lolol
 alias chrome='chromium-browser &> /dev/null &'
+alias invert='xcalib -invert -alter'
 alias update='sudo aptitude update'
 alias upgrade='sudo aptitude upgrade'
-
 # Make directory then cd into it
 mcd() {
     mkdir -p $1
     cd $1
 }
-
 # Change directory then ls
 cl() {
     cd $1
     ls
 }
 
-# shortcuts
-alias bowd='cd ~/workspace/bowdoin; ls'
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
