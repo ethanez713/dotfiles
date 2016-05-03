@@ -5,3 +5,6 @@
 
 # Ignore .zip files
 *.zip
+
+# Ignore c .o files
+*.o

@@ -20,13 +20,15 @@ alias chrome='chromium-browser &> /dev/null &'
 alias invert='xcalib -invert -alter'
 alias update='sudo aptitude update'
 alias upgrade='sudo aptitude upgrade'
+alias shorten='shorten_ps1'
+alias expand='expand_ps1'
 # Make directory then cd into it
 mcd() {
     mkdir -p $1
     cd $1
 }
 # Change directory then ls
-cl() {
+cls() {
     cd $1
     ls
 }
@@ -67,7 +69,6 @@ match_lhs=""
 [[ $'\n'${match_lhs} == *$'\n'"TERM "${safe_term}* ]] && use_color=true
 
 if ${use_color} ; then
-
     # Enable colors for grep. Prefer ~/.dir_colors #64489
     if type -P dircolors >/dev/null ; then
 	if [[ -f ~/.dir_colors ]] ; then
@@ -113,6 +114,10 @@ shorten_ps1 () {
 expand_ps1 () {
     PS1="$boldGreen\u@\h:$yellow\w$plainCyan\$(__git_ps1) $boldYellow\$$reset "
 }
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=2000
+HISTFILESIZE=4000
 
 # Try to keep environment pollution down, EPA loves us.
 unset use_color safe_term match_lhs
