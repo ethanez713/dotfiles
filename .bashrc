@@ -28,7 +28,7 @@ mcd() {
     cd $1
 }
 # Change directory then ls
-cls() {
+cdls() {
     cd $1
     ls
 }
