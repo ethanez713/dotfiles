@@ -8,3 +8,8 @@
 
 # Ignore c .o files
 *.o
+
+# Ignore LaTeX files
+*.log
+*.prv
+_region_*

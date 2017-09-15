@@ -3,10 +3,11 @@
 ;; ;; ; ;; ;;
 
 (require 'paren) (show-paren-mode t)    ;; Display matching parentheses
+(electric-pair-mode 1)                  ;; autocomplete paired brackets
 (setq-default column-number-mode t)     ;; Show column numbers
-(global-set-key (kbd "M-s M-s") 'shell) ;; bash shell shortcut
 (setq backup-by-copying-when-linked t)  ;; emacs won't break hard links
-;; general formatting
+
+;; formatting
 (setq require-final-newline t)          ;; forces final newline
 (add-hook 'before-save-hook
 	  'delete-trailing-whitespace)  ;; saving clears extra w-space
@@ -22,6 +23,9 @@
 ;; ;; ;; ;; ;;
 ;; KEYBOARD ;;
 ;; ;; ;; ;; ;;
+
+;; bash shell shortcut
+(global-set-key (kbd "M-s M-s") 'shell)
 
 ;; bind C-x C-z to zoom the current frame
 (require 'zoom-window)
@@ -49,15 +53,12 @@
 ;; SHORTCUTS ;;
 ;; ;; ;;; ;; ;;
 
-;; change all but first 'pick' to 's' (git squashing)
-(fset 'pick-s-replace
-   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ("h%picks!" 0 "%d")) arg)))
-
 ;; reverts buffer without confirmation
 (defun revert-buffer-no-confirm ()
     "Revert buffer without confirmation."
     (interactive)
     (revert-buffer t t))
+
 ;; ;; ;; ;;
 ;; MODES ;;
 ;; ;; ;; ;;
@@ -68,11 +69,6 @@
 ;; for python shell
 (require 'python)
 (setq python-shell-interpreter "python3")
-
-;; for ruby-mode
-(add-to-list 'auto-mode-alist
-	     '("\\(Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'"
-               . ruby-mode))
 
 ;; ;; ;; ;; ;; ;; ;;
 ;; OTHER PACKAGES ;;
@@ -88,29 +84,23 @@
 (setq nlinum-format "%3d ")
 (global-set-key (kbd "M-n") 'nlinum-mode)
 
-;; ;; for AUCTeX
-;; (require 'tex-site)
-;; (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-;; (setq TeX-PDF-mode t) ;; starts PDF mode by default
-;; ;; from AUCTeX quickstart manual
-;; (setq TeX-auto-save t) ;; for document parsing
-;; (setq TeX-parse-self t) ;; for document parsing
-;; (setq LaTeX-indent-level 4) ;; for \item indenting
-;; (setq LaTeX-item-indent -2)
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector ["#2d3743" "#ff4242" "#74af68" "#dbdb95" "#34cae2" "#008b8b" "#00ede1" "#e1e1e0"])
  '(coffee-tab-width 2)
+ '(column-number-mode t)
  '(css-indent-offset 2)
+ '(custom-enabled-themes (quote (misterioso)))
  '(ido-work-directory-list-ignore-regexps (quote (".*\\/exercism\\/.*")))
  '(inhibit-startup-screen t)
+ '(show-paren-mode t)
  '(vc-follow-symlinks t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 143 :width normal)))))

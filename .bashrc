@@ -16,6 +16,7 @@ alias bowd='cd ~/workspace/bowdoin; ls'
 
 alias emacs='emacs -nw'
 alias emasc='emacs -nw' # lolol
+alias emacsw='/usr/bin/emacs' # windowed mode
 alias chrome='chromium-browser &> /dev/null &'
 alias invert='xcalib -invert -alter'
 alias update='sudo aptitude update'
