@@ -3,11 +3,13 @@
 *#*#
 .#*
 
-# Ignore .zip files
 *.zip
 
-# Ignore c .o files
+#Ignore c/c++ object files
 *.o
+
+#Ignore python compiled files
+*.pyc
 
 # Ignore LaTeX files
 *.log

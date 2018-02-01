@@ -84,6 +84,13 @@
 (setq nlinum-format "%3d ")
 (global-set-key (kbd "M-n") 'nlinum-mode)
 
+;; yasnippets
+(add-to-list 'load-path
+	     ".emacs.d/elpa/yasnippet*")
+(require 'yasnippet)
+(yas-global-mode 1)
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
