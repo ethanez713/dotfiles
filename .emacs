@@ -3,9 +3,9 @@
 ;; ;; ; ;; ;;
 
 (require 'paren) (show-paren-mode t)    ;; Display matching parentheses
-(electric-pair-mode 1)                  ;; autocomplete paired brackets
 (setq-default column-number-mode t)     ;; Show column numbers
 (setq backup-by-copying-when-linked t)  ;; emacs won't break hard links
+(xterm-mouse-mode t)                    ;; this is an emacs sin please forgive me emacs gods
 
 ;; formatting
 (setq require-final-newline t)          ;; forces final newline
@@ -31,11 +31,6 @@
 (require 'zoom-window)
 (global-set-key (kbd "C-x C-z") 'zoom-window-zoom)
 (setq zoom-window-mode-line-color "Red")
-
-;; bind C-x 4 to split window into quadrants
-(fset 'window-split-quadrants
-   "\C-x3\C-x2\C-[[1;2C\C-x2\C-[[1;2D")
-(define-key global-map (kbd "C-x 4") 'window-split-quadrants)
 
 ;; use arrow keys to move between windows
 (when (fboundp 'windmove-default-keybindings)
