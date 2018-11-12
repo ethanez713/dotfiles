@@ -5,9 +5,10 @@
 (require 'paren) (show-paren-mode t)    ;; Display matching parentheses
 (setq-default column-number-mode t)     ;; Show column numbers
 (setq backup-by-copying-when-linked t)  ;; emacs won't break hard links
+(setq ring-bell-function 'ignore)       ;; no beeping
 (xterm-mouse-mode t)                    ;; this is an emacs sin please forgive me emacs gods
 
-;; formatting
+;; general formatting
 (setq require-final-newline t)          ;; forces final newline
 (add-hook 'before-save-hook
 	  'delete-trailing-whitespace)  ;; saving clears extra w-space
@@ -17,7 +18,8 @@
   (require 'package)
   (package-initialize)
   (add-to-list 'package-archives '("melpa" .
-"http://melpa.milkbox.net/packages/") t)
+				   "http://melpa.milkbox.net/packages/")
+	       t)
   )
 
 ;; ;; ;; ;; ;;
@@ -50,9 +52,9 @@
 
 ;; reverts buffer without confirmation
 (defun revert-buffer-no-confirm ()
-    "Revert buffer without confirmation."
-    (interactive)
-    (revert-buffer t t))
+  "Revert buffer without confirmation."
+  (interactive)
+  (revert-buffer t t))
 
 ;; ;; ;; ;;
 ;; MODES ;;
@@ -84,25 +86,3 @@
 	     ".emacs.d/elpa/yasnippet*")
 (require 'yasnippet)
 (yas-global-mode 1)
-
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector ["#2d3743" "#ff4242" "#74af68" "#dbdb95" "#34cae2" "#008b8b" "#00ede1" "#e1e1e0"])
- '(coffee-tab-width 2)
- '(column-number-mode t)
- '(css-indent-offset 2)
- '(custom-enabled-themes (quote (misterioso)))
- '(ido-work-directory-list-ignore-regexps (quote (".*\\/exercism\\/.*")))
- '(inhibit-startup-screen t)
- '(show-paren-mode t)
- '(vc-follow-symlinks t))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 143 :width normal)))))
