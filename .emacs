@@ -6,7 +6,7 @@
 (setq-default column-number-mode t)     ;; Show column numbers
 (setq backup-by-copying-when-linked t)  ;; emacs won't break hard links
 (setq ring-bell-function 'ignore)       ;; no beeping
-(xterm-mouse-mode t)                    ;; this is an emacs sin please forgive me emacs gods
+(mwheel-install)                        ;; wheeeeel scrolling
 
 ;; general formatting
 (setq require-final-newline t)          ;; forces final newline
