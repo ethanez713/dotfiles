@@ -6,7 +6,7 @@ alias ls='ls -B --color=auto'
 alias la='ls -AB'
 alias ll='ls -lB'
 alias lla='ls -lAB'
-alias tree='tree -I "*~"'
+alias tree="tree -I '*~'"
 
 alias ..='cd ..'
 alias .2='cd ../..'
