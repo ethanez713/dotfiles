@@ -1,6 +1,5 @@
 # To enable the settings / commands in this file for login shells as well,
 # this file has to be sourced in /etc/profile.
-
 # my ALIASES :)
 alias ls='ls -B --color=auto'
 alias la='ls -AB'
@@ -17,16 +16,15 @@ alias rm='rm -I --preserve-root'
 
 alias emacs='emacs -nw'
 alias emasc='emacs -nw' # lolol
-alias shorten='shorten_ps1'
-alias expand='expand_ps1'
+alias tm='tmux -2'
+alias tmuxad='tmux -2 a -d'
 
 # my ENV VARIABLES
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=10000
+HISTSIZE=10000            # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTFILESIZE=10000
-
-#Utmost importance
-export EDITOR='emacs'
+PYTHONDONTWRITEBYTECODE=1 # block *.pyc files
+TERM=screen-256color
+EDITOR='emacs -nw' # Utmost importance
 
 # Try to keep environment pollution down, EPA loves us.
 unset use_color safe_term match_lhs
@@ -71,6 +69,8 @@ if ${use_color} ; then
 
     if [[ ${EUID} == 0 ]] ; then
         PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\h\[\033[01;34m\] \W \$\[\033[00m\] '
+    elif [[ "$TERM" == "dumb" ]]; then
+	PS1='\u@\h:\w \$ '
     else
         #OLD PS1: PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
 	#CUSTOM PS1
@@ -79,14 +79,14 @@ if ${use_color} ; then
 	green="\[$(tput setaf 2)\]"
 	yellow="\[$(tput setaf 3)\]"
 	cyan="\[$(tput setaf 6)\]"
-	reset="\[$(tput sgr0)\]"
+	reset="\[\033[00m\]"
 
 	boldGreen="$bold$green"
 	boldYellow="$bold$yellow"
 	boldRed="$bold$red"
 	plainCyan="$reset$cyan"
 
-	PS1="$boldGreen\u@\h:$yellow\w $boldYellow\$ $reset"
+	PS1="$boldGreen\u@\h:$yellow\w $plainCyan\$(__git_ps1 '(%s)') $boldYellow\$ $reset"
     fi
 
     alias grep='grep --colour=auto'
@@ -95,15 +95,15 @@ else
 fi
 
 # Shortens PS1 by hiding /u /h
-shorten_ps1 () {
+shorten() {
     PROMPT_DIRTRIM=3
-    PS1="$boldYellow\w \$$reset "
+    PS1="$boldYellow\w $plainCyan\$(__git_ps1 '(%s)') $boldYellow\$ $reset"
 }
 
 # Re-expands PS1
-expand_ps1 () {
+expand() {
     PROMPT_DIRTRIM=0
-    PS1="$boldGreen\u@\h:$yellow\w $boldYellow\$$reset "
+    PS1="$boldGreen\u@\h:$yellow\w $plainCyan\$(__git_ps1 '(%s)') $boldYellow\$ $reset" #copy paste from above lol
 }
 
 echo '~/.bashrc has run'
