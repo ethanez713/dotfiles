@@ -6,6 +6,7 @@ alias la='ls -AB'
 alias ll='ls -lB'
 alias lla='ls -lAB'
 alias tree="tree -I '*~'"
+alias tailnf="tail -n+1 -f"
 
 alias ..='cd ..'
 alias .2='cd ../..'
@@ -17,6 +18,7 @@ alias rm='rm -I --preserve-root'
 alias emacs='emacs -nw'
 alias emasc='emacs -nw' # lolol
 alias tm='tmux -2'
+alias tmuxls='tmux ls'
 alias tmuxad='tmux -2 a -d'
 
 # my ENV VARIABLES
@@ -86,7 +88,8 @@ if ${use_color} ; then
 	boldRed="$bold$red"
 	plainCyan="$reset$cyan"
 
-	PS1="$boldGreen\u@\h:$yellow\w $plainCyan\$(__git_ps1 '(%s)') $boldYellow\$ $reset"
+	#	PS1="$boldGreen\u@\h:$yellow\w $plainCyan\$(__git_ps1 '(%s)') $boldYellow\$ $reset"
+	PS1="$boldGreen\u@\h:$yellow\w $boldYellow\$ $reset"
     fi
 
     alias grep='grep --colour=auto'
@@ -103,7 +106,7 @@ shorten() {
 # Re-expands PS1
 expand() {
     PROMPT_DIRTRIM=0
-    PS1="$boldGreen\u@\h:$yellow\w $plainCyan\$(__git_ps1 '(%s)') $boldYellow\$ $reset" #copy paste from above lol
+    PS1="$boldGreen\u@\h:$yellow\w $boldYellow\$ $reset"
 }
 
 echo '~/.bashrc has run'

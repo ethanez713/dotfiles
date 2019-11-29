@@ -7,6 +7,7 @@
 (setq backup-by-copying-when-linked t)  ;; emacs won't break hard links
 (setq ring-bell-function 'ignore)       ;; no beeping
 (mwheel-install)                        ;; wheeeeel scrolling
+(setq-default fill-column 120)          ;; new column standard for a new era
 
 ;; general formatting
 (setq require-final-newline t)          ;; forces final newline
@@ -59,9 +60,6 @@
 ;; ;; ;; ;;
 ;; MODES ;;
 ;; ;; ;; ;;
-
-;; for text-mode
-(add-hook 'text-mode-hook 'turn-on-auto-fill)
 
 ;; for python shell
 (require 'python)
