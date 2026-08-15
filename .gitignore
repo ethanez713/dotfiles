@@ -15,3 +15,5 @@
 *.log
 *.prv
 _region_*
+
+**/.claude/settings.local.json
