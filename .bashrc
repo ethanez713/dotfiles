@@ -110,3 +110,11 @@ expand() {
 }
 
 echo '~/.bashrc has run'
+
+# --- claude-autoresume: wrap interactive `claude` so 5h rate limits auto-resume ---
+# Only interactive shells get this alias; scripts/non-interactive `claude` (and the
+# real binary, reached via `command claude` inside the wrapper) are unaffected.
+alias claude="$HOME/claude-autoresume/bin/cc-run"
+. "$HOME/.cargo/env"
+# The SDK's v37 adb, not Debian's v28 — only v37 supports `adb pair` for wireless debugging.
+alias adb="$HOME/Android/Sdk/platform-tools/adb"
