@@ -18,3 +18,9 @@
 	insteadOf = https://github.com/
 [color]
 	status = auto
+[credential "https://github.com"]
+	helper = 
+	helper = !/home/ezhou/.local/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/home/ezhou/.local/bin/gh auth git-credential
